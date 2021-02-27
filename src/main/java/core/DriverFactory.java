@@ -40,14 +40,7 @@ public class DriverFactory {
 							"src/test/resources/drivers/geckodriver_x64" + extension);
 					driver = new FirefoxDriver();
 					break;
-				} else if (System.getProperty("os.name").startsWith("Windows")
-						&& System.getProperty("os.arch").equals("i386")) {
-					extension = ".exe";
-					System.setProperty("webdriver.gecko.driver",
-							"src/test/resources/drivers/geckodriver_x32" + extension);
-					driver = new FirefoxDriver();
-					break;
-				}
+				} 
 			}
 		}
 		return driver;

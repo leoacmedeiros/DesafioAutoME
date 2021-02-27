@@ -30,19 +30,78 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
 	WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+	
+	
+	/********** Clique **********/
 
-	/********** TextField e TextArea **********/
+	public void clicar(By by) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		wait.until(ExpectedConditions.elementToBeClickable(by)).click();
+	}
+	
+	
+	
+	/********** Gerar email **********/
+
+	public static String gerarEmailRandomico() {
+		int i, vogalAleatoria, consoanteAleatoria;
+
+		String vogal[] = { "a", "e", "i", "o", "u" }, vogalConsoante = "", email = "", consoante[] = { "b", "c", "d",
+				"f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "w", "x", "y", "z" };
+		Random random = new Random();
+
+		for (i = 0; i <= 8; i++) {
+			vogalAleatoria = 0 + random.nextInt(4);
+			consoanteAleatoria = 0 + random.nextInt(19);
+			vogalConsoante = vogal[vogalAleatoria] + consoante[consoanteAleatoria];
+			email = email + vogalConsoante;
+		}
+		return email + "@emailaleatorio.com";
+	}
+	
+	
+	
+	/********** Input **********/
 
 	public void escrever(By by, String text) {
-		esperarPresencaDoLoading();
 		waitForLoad(getDriver());
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.elementToBeClickable(getDriver().findElement(by)));
-
 		getDriver().findElement(by).clear();
 		getDriver().findElement(by).sendKeys(text);
 	}
 
+	
+	/********** Espera **********/
+	public static void esperarElementoFicarVisivel(By by) throws TimeoutException {
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
+	
+	/********** ComboBox **********/
+
+	public void selecionarComboBoxIndice(By by, int numIndice) {
+		waitForLoad(getDriver());
+		Select dropdown = new Select(getDriver().findElement(by));
+		dropdown.selectByIndex(numIndice);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void forcarLimpar(By by) {
 		getDriver().findElement(by).sendKeys(Keys.CONTROL + "A");
 		getDriver().findElement(by).sendKeys(Keys.DELETE);
@@ -52,21 +111,9 @@ public class BasePage {
 		return getDriver().findElement(by).getAttribute("value");
 	}
 
-	/********** ComboBox **********/
+	
 
-	public void selecionarComboBox(By by, String valor) {
-		waitForLoad(getDriver());
-		Select comboBox = new Select(getDriver().findElement(by));
-		wait.until(ExpectedConditions.elementToBeClickable(by));
-		comboBox.selectByVisibleText(valor);
-	}
-
-	/********** Clique **********/
-
-	public void clicar(By by) {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-		wait.until(ExpectedConditions.elementToBeClickable(by)).click();
-	}
+	
 
 	/********** Obter Informações **********/
 
@@ -175,10 +222,7 @@ public class BasePage {
 				.executeScript("return document.readyState").equals("complete"));
 	}
 
-	public static void esperarElementoFicarVisivel(By by) throws TimeoutException {
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-	}
+
 
 	public static void sleep(Integer tempoEmSegundos) {
 		try {
@@ -188,23 +232,7 @@ public class BasePage {
 		}
 	}
 
-	/********** Geradores Randômicos **********/
-
-	public static String gerarEmailRandomico() {
-		int i, vogalAleatoria, consoanteAleatoria;
-
-		String vogal[] = { "a", "e", "i", "o", "u" }, vogalConsoante = "", email = "", consoante[] = { "b", "c", "d",
-				"f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "w", "x", "y", "z" };
-		Random random = new Random();
-
-		for (i = 0; i <= 8; i++) {
-			vogalAleatoria = 0 + random.nextInt(4);
-			consoanteAleatoria = 0 + random.nextInt(19);
-			vogalConsoante = vogal[vogalAleatoria] + consoante[consoanteAleatoria];
-			email = email + vogalConsoante;
-		}
-		return email + "@emailaleatorio.com";
-	}
+	
 
 	public static String gerarNumeroRandomico() {
 		int i;
