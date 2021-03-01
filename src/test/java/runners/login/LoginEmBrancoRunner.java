@@ -12,12 +12,12 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		strict = true
 		,monochrome = true
 		,stepNotifications = true
-		,features = "src/test/resources/features/login/CadastroUsuario.feature"
+		,features = "src/test/resources/features/login/LoginEmBranco.feature"
 		,glue = "stepDefinitions"
-		,plugin = {"pretty","html:target/report-html/login/CadastroUsuario", "json:target/cucumber-reports/login/CadastroUsuario/CadastroUsuario.json"}
+		,plugin = {"pretty","html:target/report-html/login/LoginEmBranco", "json:target/cucumber-reports/login/LoginEmBranco/LoginEmBranco.json"}
 		,snippets = SnippetType.CAMELCASE
 )
 
-public class CadastroUsuarioRunner {
+public class LoginEmBrancoRunner {
 
 }

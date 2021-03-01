@@ -1,10 +1,11 @@
 #language: pt
-Funcionalidade: Efetuar Login
+Funcionalidade: Login inválido
 
-  Cenário: Autenticar Novo CBTUR
-    Dado esteja na página de login
-    Quando informar os dados de logon
-      | Usuário | 005.838.141-40 |
-      | Senha   |           0000 |
-    E clicar em [Entrar]
-    Então deverá se exibido a tela inicial do sistema
+  Cenário: Acessar o site, clicar para logar, inserir login inválido e validar mensagem de login inválido
+    Dado que acesse o site Automation Practice
+    E acesse a opção para logar
+    E informe os dados de email e senha
+      | email    | logininvalido@email.com |
+      | password |                  000000 |
+    Quando clicar no botão Sign In
+    Então o site deverá exibir mensagem que a autenticação falhou

@@ -45,7 +45,7 @@ public class CadastroUsuarioSteps extends BasePage{
 	    cadastroUsuario.selecionarMr();
 	    cadastroUsuario.digitarFirstName(dataTable.cell(1, 1));
 	    cadastroUsuario.digitarLastName(dataTable.cell(2, 1));
-	    cadastroUsuario.digitarPassword(dataTable.cell(3, 1));
+	    cadastroUsuario.digitarPassword(geraSenha()); // Aqui eu criei um gerador de senha que está em BasePage.java
 	    cadastroUsuario.selecionarDateBirth();
 	    cadastroUsuario.digitarCompany(dataTable.cell(5, 1));
 	    cadastroUsuario.digitarAddress(dataTable.cell(6, 1));
@@ -68,6 +68,7 @@ public class CadastroUsuarioSteps extends BasePage{
 	@Então("o usuário será criado")
 	public void oUsuárioSeráCriado() {
 	    cadastroUsuario.validarUsuarioCriado();
+	    fecharBrowser();
 	}
 	
 }

@@ -1,7 +1,7 @@
 #language: pt
 Funcionalidade: Cadastro de usuário com sucesso
 
-  Cenário: Cadastrar usuário
+  Cenário: Acessar o site, acessar funcionalidade para se cadastrar, inserir todos os dados obrigatórios e cadastrar o usuário
     Dado que acesse o site Automation Practice
     E clique para se cadastrar
     E digite o endereço de e-mail para iniciar o cadastro
@@ -11,7 +11,7 @@ Funcionalidade: Cadastro de usuário com sucesso
       | Title | Mr. |
       | First Name | Leonardo  |
       | Last Name | Medeiros |
-      | Password | 123456 |
+      | Password | senha gerada automaticamente |
       | Date of Birth | 5 | 
       | Company | Mercado Eletrônico |
       | Address | R. Gomes de Carvalho, 1195 - Vila Olímpia, São Paulo - SP |

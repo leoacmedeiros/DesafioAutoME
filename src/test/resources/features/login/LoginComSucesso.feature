@@ -1,10 +1,11 @@
 #language: pt
-Funcionalidade: Efetuar Login
+Funcionalidade: Realizar login no site com sucesso
 
-  Cenário: Autenticar Novo CBTUR
-    Dado esteja na página de login
-    Quando informar os dados de logon
-      | Usuário | 005.838.141-40 |
-      | Senha   |           0000 |
-    E clicar em [Entrar]
-    Então deverá se exibido a tela inicial do sistema
+  Cenário: Acessar o site e realizar o login com sucesso
+    Dado que acesse o site Automation Practice
+    E acesse a opção para logar
+    E informe os dados de email e senha
+      | email    | teste@testes.com |
+      | password |           123456 |
+    Quando clicar no botão Sign In
+    Então o usuário irá logar no sistema  

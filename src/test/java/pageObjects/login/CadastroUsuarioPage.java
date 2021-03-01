@@ -103,6 +103,7 @@ public class CadastroUsuarioPage extends BasePage {
 	}
 
 	public void validarUsuarioCriado() {
+		// Crianão de um método para esperar o elemento ficar visível e inserção de uma validação do junit 
 		esperarElementoFicarVisivel(By.xpath("//div[@class='header_user_info']//a//span"));
 		boolean usuario = DriverFactory.getDriver().findElement(By.xpath("//div[@class='header_user_info']//a//span")).getText().contains("Leonardo Medeiros");
 		Assertions.assertTrue(usuario);

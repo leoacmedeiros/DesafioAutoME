@@ -25,7 +25,7 @@ public class DriverFactory {
 					System.setProperty("webdriver.chrome.driver",
 							"src/test/resources/drivers/chromedriver" + extension);
 					ChromeOptions optionsChrome = new ChromeOptions();
-					optionsChrome.addArguments("start-maximized", "incognito");
+					optionsChrome.addArguments("start-maximized", "incognito"); // Abrir o browser sempre maximizado e em modo anônimo
 					DesiredCapabilities capabilitiesChrome = new DesiredCapabilities();
 					capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, optionsChrome);
 					optionsChrome.merge(capabilitiesChrome);
@@ -46,11 +46,5 @@ public class DriverFactory {
 		return driver;
 	}
 
-	public static void killDriver() {
-		if (driver != null) {
-			driver.quit();
-			driver = null;
-		}
-	}
 
 }

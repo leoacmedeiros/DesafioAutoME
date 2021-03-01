@@ -8,4 +8,6 @@ public enum Browsers {
 
 	public static Browsers browser = Browsers.CHROME;
 
+	
+	// Aqui pode selecionar em qual browser deseja rodar os testes. Chrome ou Firefox. 
 }
