@@ -12,5 +12,6 @@ O projeto é composto pelos seguintes pacotes:
 1.	Baixar o Java JDK e instalar
 2.	Definir Variáveis de Ambiente
 3.	Baixar o projeto do GITHUB
-4.	Executar os arquivos Runners do seguinte caminho: /ME/src/test/java/runners/login
+4.	Executar os arquivos runners do seguinte caminho: /ME/src/test/java/runners/login
 
+Os relatórios são gerados em HTML e JSON, no caminho: /ME/target
